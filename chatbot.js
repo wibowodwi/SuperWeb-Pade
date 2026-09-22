@@ -65,7 +65,7 @@
       history.push({ role: 'assistant', content: data.answer });
     } catch (err) {
       typing.remove();
-      addMessage('bot', 'Maaf, shopper sedang tidak tersambung. Untuk bantuan langsung, kamu bisa hubungi Toko Pade melalui WhatsApp.');
+      addMessage('bot', 'Maaf, asisten AI Pade sedang tidak tersambung. Untuk bantuan langsung, kamu bisa hubungi Toko Pade melalui WhatsApp.');
       console.error(err);
     } finally {
       input.disabled = false;
