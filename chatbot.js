@@ -65,7 +65,7 @@
       history.push({ role: 'assistant', content: data.answer });
     } catch (err) {
       typing.remove();
-      addMessage('bot', 'Maaf, asisten AI Pade sedang tidak tersambung. Untuk bantuan langsung, kamu bisa hubungi Toko Pade melalui WhatsApp.');
+      addMessage('bot', 'Maaf, asisten AI Pade sedang tidak tersambung. Untuk bantuan langsung, kamu bisa hubungi Toko Pade melalui WhatsApp 085183180626 atau klik https://api.whatsapp.com/6285183180626.');
       console.error(err);
     } finally {
       input.disabled = false;
