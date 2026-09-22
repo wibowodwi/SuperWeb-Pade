@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grosir dan Eceran Pade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">Selamat datang di <b> Toko Pade</b> · Bandar Cemilan Ter-Hade</div>
+  <header class="site-header">
+      <a href="index.html" class="brand">
+          <img src="assets/logo-pade.png" alt="Pade" class="brand-logo">
+          <span>Grosir dan Eceran Pade</span>
+      </a>
+    <nav><a class="active" href="#belanja">Belanja</a><a href="#produk">Katalog</a><a href="#bantuan" id="tanyaShopper">Daftar Reseller</a><span class="sparkle"></span><button id="cartJump" class="cart-pill">🛒 Keranjang <b id="cartCount">0</b></button></nav>
+  </header>
+
+  <main class="page" id="belanja">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span></span> KOLEKSI CEMILAN MINGGU INI</div>
+        <h1>Bandar Cemilan,<br><em>ter-Hade.</em></h1>
+        <p>Toko Pade memilih camilan Indonesia yang enak, mudah dikirim,<br class="desktop"> dan kualitas terbaik.</p>
+      </div>
+      <div class="hero-note">
+        <h3>Daftar Reseller</h3>
+        <p>Ayo daftar menjadi bagian dari Reseller Toko Keripik Pade! Tentunya dengan berbagi keuntungan yang akan didapat. Klik "Daftar Reseller" diatas untuk bergabung.</p>
+      </div>
+  
+    </section>
+
+    <section class="content-grid">
+      <div class="catalog" id="produk">
+        <h2>Pilihan yang direkomendasikan</h2>
+        <div class="category-row" id="categoryRow"></div>
+        <div class="product-head"><h2>Produk Pilihan</h2><div class="filters"><input id="search" placeholder="⌕  Cari produk..."/><select id="category"><option value="">Semua Kategori</option></select></div></div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+      <aside class="cart-card" id="cartCard">
+        <div class="cart-title"><h3>Keranjang Belanja</h3><button id="clearCart">Hapus Semua</button></div>
+        <div id="cartItems"></div>
+        <div class="total-row"><b>Total</b><strong id="cartTotal">Rp 0</strong></div>
+        <label>Nama Pelanggan<input id="customerName" placeholder="Masukkan nama Anda..." /></label>
+        <label>Catatan Pesanan <small>(opsional)</small><textarea id="customerNote" placeholder="Contoh: Tolong dikirim jam 3 sore"></textarea></label>
+        <button class="wa-btn" id="checkoutBtn">◉ &nbsp; Pesan via WhatsApp <span>→</span></button>
+        <div class="checkout-hint" id="checkoutHint"></div>
+      </aside>
+    </section>
+  </main>
+
+  <section class="benefits" id="bantuan">
+    <div><span>🚚</span><b>Pengiriman Cepat</b><small>Pesanan segera diproses</small></div>
+    <div><span>♢</span><b>Produk Berkualitas</b><small>Pilihan terbaik untukmu</small></div>
+    <div><span>♡</span><b>Harga Bersahabat</b><small>Rasa enak, harga pas</small></div>
+    <div><span>♧</span><b>Pelayanan Ramah</b><small>Siap membantu kapan saja</small></div>
+  </section>
+   <footer class="site-footer">
+    <div class="footer-copy">© 2026 <span id="footerStoreName">Keripik Pade</span> · Camilan pilihan untuk hari yang lebih enak.</div>
+  </footer>
+
+  <div class="shopper-backdrop" id="shopperBackdrop" aria-hidden="true"></div>
+  <button class="shopper-launcher" id="shopperLauncher" aria-label="Buka Bot Pade" aria-expanded="false">
+    <span class="shopper-launcher-icon" aria-hidden="true"></span>
+  </button>
+  <aside class="shopper-panel" id="shopperPanel" aria-hidden="true">
+    <header class="shopper-header">
+      <div>
+        <h2>Bot Pade</h2>
+        <p>Rekomendasi lokal, tanpa ribet.</p>
+      </div>
+      <button class="shopper-close" id="shopperClose" aria-label="Tutup chat">×</button>
+    </header>
+    <div class="shopper-messages" id="shopperMessages" aria-live="polite">
+      <div class="shopper-bubble shopper-bubble-bot">Halo! Saya bisa bantu pilih cemilan. Lagi mencari rasa atau suasana seperti apa?</div>
+    </div>
+    <div class="shopper-composer">
+      <div class="shopper-chips" id="shopperChips">
+        <button data-prompt="Yang gurih dong">Yang gurih</button>
+        <button data-prompt="Rekomendasi buat hadiah">Buat hadiah</button>
+        <button data-prompt="Cemilan buat teman nonton">Teman nonton</button>
+        <button data-prompt="Yang segar dan ringan">Yang segar</button>
+      </div>
+      <form class="shopper-input-wrap" id="shopperForm">
+        <input id="shopperInput" autocomplete="off" placeholder="Ceritakan yang kamu mau..." aria-label="Pesan ke Bot Pade">
+        <button type="submit" aria-label="Kirim pesan">↑</button>
+      </form>
+    </div>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
