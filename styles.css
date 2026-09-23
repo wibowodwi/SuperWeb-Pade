@@ -259,10 +259,10 @@
   .hero-notes .hero-note p{font-size:9px}
 }
 @media(max-width:380px){
-  .hero{min-height:500px}
+  .hero{min-height:0}
   h1{font-size:43px}
   .hero-note{max-width:100%;padding:14px}
-  .hero-visual{height:280px}
+  .hero-visual{height:auto;aspect-ratio:1670 / 941}
 }
 
 
@@ -342,6 +342,40 @@
   }
 }
 @media(max-width:620px){
+  /*
+     Mobile hero image: tampilkan seluruh artwork tanpa crop.
+     Gambar asli 1670x941 (rasio 16:9), jadi area visual mengikuti rasio gambar.
+     Pseudo-element dipakai agar gradient tetap bisa menyesuaikan layar tanpa
+     ikut mengubah rasio/cropping gambar.
+  */
+  .hero-visual{
+    position:relative;
+    width:100%;
+    height:auto;
+    aspect-ratio:1670 / 941;
+    min-height:0;
+    background-image:none;
+    background-color:transparent;
+    overflow:hidden;
+    margin-top:8px;
+  }
+  .hero-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:url('assets/hero-pade.png');
+    background-size:contain;
+    background-position:center center;
+    background-repeat:no-repeat;
+  }
+  .hero-visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(247,240,231,.72) 0%, rgba(247,240,231,.10) 24%, rgba(247,240,231,0) 62%);
+    pointer-events:none;
+  }
+
   /* Sekilas Info: tetap 2 kolom di HP dan tampil setelah gambar hero */
   .hero-notes{
     order:5;
