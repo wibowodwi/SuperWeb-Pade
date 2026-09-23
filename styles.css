@@ -199,19 +199,64 @@
   h1{font-size:58px}
 }
 @media(max-width:620px){
-  .hero{display:block;min-height:470px;padding:24px 0 30px}
-  .hero-copy{max-width:100%;position:relative;z-index:3}
+  .hero{
+    display:grid;
+    grid-template-columns:1fr;
+    min-height:0;
+    padding:24px 0 24px;
+    overflow:visible;
+  }
+  /* Pecah isi hero-copy menjadi item grid agar Sekilas Info bisa ditempatkan
+     setelah gambar hero, bukan tersembunyi di belakangnya. */
+  .hero-copy{
+    display:contents;
+  }
+  .hero-copy > .eyebrow,
+  .hero-copy > h1,
+  .hero-copy > p{
+    position:relative;
+    z-index:3;
+  }
+  .hero-copy > .eyebrow{order:1}
+  .hero-copy > h1{order:2}
+  .hero-copy > p{order:3}
   .hero-visual{
+    position:relative;
+    order:4;
     width:100%;
     height:300px;
     top:auto;
-    bottom:0;
+    right:auto;
+    bottom:auto;
     opacity:.9;
     background-image:linear-gradient(180deg, rgba(247,240,231,1) 0%, rgba(247,240,231,.45) 25%, rgba(247,240,231,.08) 70%, rgba(247,240,231,0) 100%), url('assets/hero-pade.png');
     background-position:center bottom;
+    margin-top:4px;
   }
-  .hero-note{margin:22px 0 0;max-width:240px}
+  .hero-notes{
+    order:5;
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    margin-top:10px;
+    align-items:start;
+  }
+  .hero-notes .hero-note{
+    width:auto;
+    max-width:none;
+    margin:0;
+    padding:11px 10px;
+  }
+  .hero-notes .hero-note h3{font-size:15px;margin-bottom:5px}
+  .hero-notes .hero-note p{font-size:10px;line-height:1.4}
   h1{font-size:48px;letter-spacing:-2px}
+}
+@media(max-width:380px){
+  .hero-notes{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .hero-notes .hero-note{padding:9px 8px}
+  .hero-notes .hero-note h3{font-size:13px}
+  .hero-notes .hero-note p{font-size:9px}
 }
 @media(max-width:380px){
   .hero{min-height:500px}
@@ -256,3 +301,80 @@
 .social-benefit-item.is-disabled{opacity:.5;cursor:not-allowed;}
 @media(max-width:900px){.social-benefits{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:620px){.social-benefits{grid-template-columns:1fr 1fr;gap:8px;padding-top:8px;padding-bottom:8px;}.social-benefit-item{padding:8px 9px;grid-template-columns:25px 1fr;column-gap:7px;}.social-benefit-icon{width:25px;height:25px;border-radius:8px}.social-benefit-icon svg{width:15px;height:15px}.social-benefit-item b{font-size:10px}.social-benefit-item small{font-size:7px}}
+
+
+/* =========================
+   Sekilas Info — 2 kolom
+   ========================= */
+.hero-notes{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  flex-wrap:nowrap;
+  width:fit-content;
+  max-width:100%;
+  margin-top:14px;
+}
+.hero-notes .hero-note{
+  width:auto;
+  flex:0 1 auto;
+  max-width:250px;
+  margin-right:0;
+  padding:13px 14px;
+  box-sizing:border-box;
+}
+.hero-notes .hero-note h3{
+  font-size:18px;
+  margin-bottom:6px;
+}
+.hero-notes .hero-note p{
+  margin:0;
+  font-size:11px;
+  line-height:1.45;
+}
+@media(max-width:900px){
+  .hero-notes{
+    gap:8px;
+  }
+  .hero-notes .hero-note{
+    max-width:220px;
+    flex-basis:auto;
+  }
+}
+@media(max-width:620px){
+  /* Sekilas Info: tetap 2 kolom di HP dan tampil setelah gambar hero */
+  .hero-notes{
+    order:5;
+    width:100%;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    margin-top:10px;
+    align-items:start;
+    flex-direction:initial;
+    max-width:none;
+  }
+  .hero-notes .hero-note{
+    display:block !important;
+    width:auto;
+    min-width:0;
+    max-width:none;
+    flex:none;
+    margin:0;
+    padding:11px 10px;
+  }
+  .hero-notes .hero-note h3{
+    font-size:15px;
+    margin-bottom:5px;
+  }
+  .hero-notes .hero-note p{
+    font-size:10px;
+    line-height:1.4;
+  }
+}
+@media(max-width:380px){
+  .hero-notes{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;}
+  .hero-notes .hero-note{max-width:none;padding:9px 8px;}
+  .hero-notes .hero-note h3{font-size:13px;}
+  .hero-notes .hero-note p{font-size:9px;}
+}
