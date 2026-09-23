@@ -219,3 +219,40 @@
   .hero-note{max-width:100%;padding:14px}
   .hero-visual{height:280px}
 }
+
+
+/* =========================
+   Media sosial dipindahkan ke benefits / Bantuan
+   ========================= */
+.benefit-social{align-items:start !important;}
+.benefit-social-content{grid-column:2;min-width:0;}
+.benefit-social-content b{display:block;margin-bottom:2px;}
+.benefit-social-content small{display:block;margin-bottom:8px;}
+.benefit-social-links{display:flex;flex-wrap:wrap;gap:5px;}
+.benefit-social-link{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 8px;border:1px solid #ded3c8;border-radius:14px;background:#fff;color:#66584f;text-decoration:none;font-size:8px;font-weight:700;cursor:pointer;transition:.18s ease;}
+.benefit-social-link:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-1px);}
+.benefit-social-link .social-icon{width:16px;height:16px;border-radius:50%;display:grid;place-items:center;background:#f0e7dd;color:var(--orange);font-size:9px;font-weight:800;}
+.benefit-social-link.is-disabled{opacity:.45;cursor:not-allowed;}
+.benefit-social-link.is-disabled:hover{transform:none;border-color:#ded3c8;color:#66584f;}
+@media(max-width:620px){
+  .benefit-social-links{gap:5px;}
+  .benefit-social-link{height:25px;padding:0 7px;}
+}
+
+/* =========================
+   Media sosial pada bagian Bantuan
+   ========================= */
+.social-benefits{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding-top:10px;padding-bottom:10px;}
+.social-benefit-item{min-width:0;display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto;column-gap:8px;align-items:center;padding:9px 11px;border:1px solid rgba(234,217,201,.95);border-radius:12px;background:#fffdf9;transition:.18s ease;}
+.social-benefit-item:hover:not(.is-disabled){transform:translateY(-2px);border-color:var(--orange);box-shadow:0 7px 16px rgba(82,55,35,.07);}
+.social-benefit-icon{grid-row:1 / span 2;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#f0e7dd;color:var(--orange);font-size:16px;font-weight:800;}
+.social-benefit-icon svg{width:17px;height:17px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.social-benefit-icon svg .dot{fill:currentColor;stroke:none;}
+.tiktok-icon svg{fill:currentColor;stroke:none;}
+.whatsapp-icon svg .cut{fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;}
+.social-benefit-item b{font-size:11px;line-height:1.2;}
+.social-benefit-item small{font-size:8px;line-height:1.25;color:var(--muted);margin-top:1px;}
+.social-benefit-link{display:contents;color:inherit;text-decoration:none;}
+.social-benefit-item.is-disabled{opacity:.5;cursor:not-allowed;}
+@media(max-width:900px){.social-benefits{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:620px){.social-benefits{grid-template-columns:1fr 1fr;gap:8px;padding-top:8px;padding-bottom:8px;}.social-benefit-item{padding:8px 9px;grid-template-columns:25px 1fr;column-gap:7px;}.social-benefit-icon{width:25px;height:25px;border-radius:8px}.social-benefit-icon svg{width:15px;height:15px}.social-benefit-item b{font-size:10px}.social-benefit-item small{font-size:7px}}

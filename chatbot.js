@@ -6,12 +6,17 @@
   const faqList = document.getElementById('shopperMessages');
   const expandAll = document.getElementById('faqExpandAll');
   const collapseAll = document.getElementById('faqCollapseAll');
+  const floatingContact = document.querySelector('.floating-contact');
+  const socialPopup = document.getElementById('socialPopup');
 
   if (!panel || !launcher || !close || !backdrop || !faqList) return;
 
   function setOpen(open) {
     panel.classList.toggle('is-open', open);
     launcher.classList.toggle('is-hidden', open);
+    // Saat FAQ terbuka, tombol Hubungi Kami ikut disembunyikan agar tidak menumpuk di atas panel.
+    floatingContact?.classList.toggle('is-hidden', open);
+    socialPopup?.classList.remove('is-open');
     backdrop.classList.toggle('is-visible', open);
     panel.setAttribute('aria-hidden', String(!open));
     launcher.setAttribute('aria-expanded', String(open));

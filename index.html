@@ -35,13 +35,14 @@
         <div class="eyebrow"><span></span> KOLEKSI CEMILAN TERBAIK, ADA DISINI</div>
         <h1>Bandar Cemilan,<br><em>ter-Hade.</em></h1>
         <p>Toko Keripik Pade memilih camilan Nusantara yang enak, bisa dikirim,<br class="desktop"> dan kualitas terbaik.</p>
+	<div class="hero-note">
+        <h3>Sekilas Info</h3>
+        <p>Ayo daftar menjadi bagian dari Reseller Toko Keripik Pade! Tentunya dengan berbagi keuntungan yang akan didapat. Klik "Daftar Reseller" diatas atau hubungi Pade untuk bergabung.</p>
+      </div>
+
       </div>
       <div class="hero-visual" aria-hidden="true"></div>
-      <div class="hero-note">
-        <h3>Sekilas Info</h3>
-        <p>Ayo daftar menjadi bagian dari Reseller Toko Keripik Pade! Tentunya dengan berbagi keuntungan yang akan didapat. Klik "Daftar Reseller" diatas atau tanya Asisten AI Pade untuk bergabung.</p>
-      </div>
-    </section>
+      </section>
 
     <section class="content-grid">
       <div class="catalog" id="produk">
@@ -62,11 +63,22 @@
     </section>
   </main>
 
-  <section class="benefits" id="bantuan">
-    <div><span>🚚</span><b>Pengiriman Cepat</b><small>Pesanan segera diproses</small></div>
-    <div><span>♢</span><b>Produk Berkualitas</b><small>Pilihan terbaik untukmu</small></div>
-    <div><span>♡</span><b>Harga Bersahabat</b><small>Rasa enak, harga pas</small></div>
-    <div><span>♧</span><b>Pelayanan Ramah</b><small>Siap membantu kapan saja</small></div>
+  <section class="benefits social-benefits" id="bantuan" aria-label="Media sosial Keripik Pade">
+    <div class="social-benefit-item" data-social="instagram">
+      <span class="social-benefit-icon instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r="1.2" class="dot"/></svg></span><b>Instagram</b><small>Ikuti Keripik Pade</small>
+    </div>
+    <div class="social-benefit-item" data-social="tiktok">
+      <span class="social-benefit-icon tiktok-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M14.2 4.2c.7 2.1 2 3.4 4.1 3.8v3.1a8 8 0 0 1-4.1-1.3v5.5a5.2 5.2 0 1 1-4.1-5.1v3.2a2.1 2.1 0 1 0 1.1 1.9V4.2h3z"/></svg></span><b>TikTok</b><small>Lihat video Pade</small>
+    </div>
+    <div class="social-benefit-item" data-social="whatsapp">
+      <span class="social-benefit-icon whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M12 3.5a8.5 8.5 0 0 0-7.2 13L3.6 20.5l4.2-1.1A8.5 8.5 0 1 0 12 3.5z"/><path class="cut" d="M9.1 8.4c.2-.4.4-.4.7-.4h.6c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.6.7c.6 1 1.4 1.8 2.5 2.4l.7-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.5v.6c0 .3-.1.5-.4.7-.5.4-1.1.6-1.7.5-2.2-.3-5.8-3.6-6.4-5.9-.2-.7-.1-1.3.3-2z"/></svg></span><b>WhatsApp</b><small>Hubungi kami langsung</small>
+    </div>
+    <div class="social-benefit-item" data-social="maps">
+      <span class="social-benefit-icon maps-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M12 21s6-6.1 6-11a6 6 0 1 0-12 0c0 4.9 6 11 6 11z"/><circle cx="12" cy="10" r="2.1"/></svg></span><b>Lokasi Toko Pade 1</b><small>Cabang Puri</small>
+    </div>
+    <div class="social-benefit-item" data-social="maps2">
+      <span class="social-benefit-icon maps-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M12 21s6-6.1 6-11a6 6 0 1 0-12 0c0 4.9 6 11 6 11z"/><circle cx="12" cy="10" r="2.1"/></svg></span><b>Lokasi Toko Pade 2</b><small>Cabang Cisangkan</small>
+    </div>
   </section>
    <footer class="site-footer">
     <div class="footer-copy">© 2026 <span id="footerStoreName">Keripik Pade</span> · Bandar Cemilan Ter-Hade.</div>
@@ -82,11 +94,7 @@
       <div class="faq-kicker">FAQ</div>
       <div class="faq-title-row">
         <h2>FAQ Pade</h2>
-        <div class="faq-actions">
-          <button type="button" id="faqExpandAll">Luaskan semua</button>
-          <button type="button" id="faqCollapseAll">Ciutkan semua</button>
-        </div>
-      </div>
+        
       <button class="shopper-close faq-close" id="shopperClose" aria-label="Tutup FAQ">×</button>
     </header>
 
@@ -142,5 +150,6 @@
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="chatbot.js"></script>
+  <script src="social-links.js"></script>
 </body>
 </html>
