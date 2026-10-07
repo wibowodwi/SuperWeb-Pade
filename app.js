@@ -24,9 +24,35 @@ function renderProducts(){
  const start=(productPage-1)*PRODUCTS_PER_PAGE;
  const pageItems=list.slice(start,start+PRODUCTS_PER_PAGE);
  const grid=document.getElementById('productGrid');
- grid.innerHTML=pageItems.map(p=>{const qty=cart.find(x=>x.id===p.id)?.qty||0;return `<article class="product-card"><img src="${p.image_url||'assets/keripik-pisang.png'}" alt="${p.name}"><h3>${p.name}</h3><div class="price">${rupiah(p.price)}</div><div class="qty"><button onclick="changeQty('${p.id}',-1)">−</button><span>${qty}</span><button onclick="changeQty('${p.id}',1)">+</button></div><button class="add" onclick="changeQty('${p.id}',1)">Tambah ke Keranjang</button></article>`}).join('')||'<div style="grid-column:1/-1;padding:30px;text-align:center;color:#8a796d">Produk tidak ditemukan.</div>';
+ grid.innerHTML=pageItems.map(p=>{const qty=cart.find(x=>x.id===p.id)?.qty||0;return `<article class="product-card"><button type="button" class="product-image-button" data-product-id="${p.id}" aria-label="Lihat detail ${p.name}"><img src="${p.image_url||'assets/keripik-pisang.png'}" alt="${p.name}"></button><h3 class="product-name-clickable" data-product-id="${p.id}">${p.name}</h3><div class="price">${rupiah(p.price)}</div><div class="qty"><button onclick="changeQty('${p.id}',-1)">−</button><span>${qty}</span><button onclick="changeQty('${p.id}',1)">+</button></div><button class="add" onclick="changeQty('${p.id}',1)">Tambah ke Keranjang</button></article>`}).join('')||'<div style="grid-column:1/-1;padding:30px;text-align:center;color:#8a796d">Produk tidak ditemukan.</div>';
  renderProductPagination(totalPages,list.length);
+ grid.querySelectorAll('[data-product-id]').forEach(btn=>btn.addEventListener('click',()=>{const p=products.find(x=>String(x.id)===String(btn.dataset.productId));if(p)openProductDetail(p)}));
 }
+function openProductDetail(p){
+ const dialog=document.getElementById('productDetailDialog');
+ if(!dialog)return;
+ const img=document.getElementById('productDetailImage');
+ const title=document.getElementById('productDetailTitle');
+ const category=document.getElementById('productDetailCategory');
+ const price=document.getElementById('productDetailPrice');
+ const desc=document.getElementById('productDetailDescription');
+ img.src=p.image_url||'assets/keripik-pisang.png';
+ img.alt=p.name||'Produk Pade';
+ title.textContent=p.name||'Produk Pade';
+ category.textContent=p.category||'';
+ price.textContent=rupiah(p.price||0);
+ desc.textContent=(p.description||'Deskripsi produk belum tersedia.').trim()||'Deskripsi produk belum tersedia.';
+ if(typeof dialog.showModal==='function') dialog.showModal(); else dialog.setAttribute('open','');
+}
+
+function closeProductDetail(){const dialog=document.getElementById('productDetailDialog');if(!dialog)return;if(typeof dialog.close==='function'&&dialog.open)dialog.close();else dialog.removeAttribute('open');}
+
+document.addEventListener('DOMContentLoaded',()=>{
+ const dialog=document.getElementById('productDetailDialog');
+ const close=document.getElementById('productDetailClose');
+ if(close)close.addEventListener('click',closeProductDetail);
+ if(dialog)dialog.addEventListener('click',e=>{if(e.target===dialog)closeProductDetail()});
+});
 function renderProductPagination(totalPages,totalItems){
  let nav=document.getElementById('productPagination');
  if(!nav){nav=document.createElement('div');nav.id='productPagination';document.getElementById('productGrid').after(nav)}

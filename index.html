@@ -273,6 +273,20 @@
     </div>
   </aside>
 
+  <dialog id="productDetailDialog" class="product-detail-dialog" aria-labelledby="productDetailTitle" aria-describedby="productDetailDescription">
+    <div class="product-detail-modal">
+      <button type="button" class="product-detail-close" id="productDetailClose" aria-label="Tutup detail produk">×</button>
+      <div class="product-detail-image-wrap"><img id="productDetailImage" src="" alt=""></div>
+      <div class="product-detail-info">
+        <div class="product-detail-category" id="productDetailCategory"></div>
+        <h2 id="productDetailTitle"></h2>
+        <div class="product-detail-price" id="productDetailPrice"></div>
+        <div class="product-detail-description-label">Deskripsi Produk</div>
+        <p id="productDetailDescription"></p>
+      </div>
+    </div>
+  </dialog>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
   <script src="app.js"></script>
